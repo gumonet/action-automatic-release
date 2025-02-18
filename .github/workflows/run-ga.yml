@@ -1,0 +1,17 @@
+name: Test Action
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      - name: Ejecutar la Action
+        uses: gumonet/github-action-hello-world@v0.0.2
+        with:
+          name: 'Desarrollador'
