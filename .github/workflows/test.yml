@@ -14,4 +14,7 @@ jobs:
       - name: Ejecutar la Action
         uses: ./
         with:
-          name: 'Desarrollador'
+          repo_token: "${{ secrets.G_TOKEN }}"
+          automatic_release_tag: "prerelease"
+          prerelease: true
+          title: "Dev Version"

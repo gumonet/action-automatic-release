@@ -1,12 +1,26 @@
 import * as core from '@actions/core';
+import { Context } from '@actions/github/lib/context';
 
-export const runAction = async () => {
-  try {
-    const name = core.getInput('name');
-    const message = `Hola, ${name}! Bienvenido a GitHub Actions 🚀`;
-    core.setOutput('message', message);
-    console.log(message);
-  } catch (error) {
-    core.setFailed(`Error ejecutando la Action: ${(error as Error).message}`);
+import {
+  dumpGitHubEventPayload,
+  getAndValidateArgs,
+  parseGitTag,
+} from './utils';
+
+export const main = async () => {
+  const args = getAndValidateArgs();
+  const context = new Context();
+  core.startGroup('Initializing the Automatic Releases action');
+  dumpGitHubEventPayload();
+  core.debug(`Github context: ${JSON.stringify(context)}`);
+  core.endGroup();
+  core.startGroup('Determining release tags');
+  const releaseTag = args.automaticReleaseTag
+    ? args.automaticReleaseTag
+    : parseGitTag(context.ref);
+  if (!releaseTag) {
+    throw new Error(
+      `The parameter "automatic_release_tag" was not set and this does not appear to be a GitHub tag event. (Event: ${context.ref})`,
+    );
   }
 };
