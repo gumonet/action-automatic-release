@@ -13,7 +13,7 @@ export const main = async () => {
   const args = getAndValidateArgs();
   const context = new Context();
 
-  const octokit = new Octokit({ auth: args.repoToken });
+  //const octokit = new Octokit({ auth: args.repoToken });
 
   core.startGroup('Initializing the Automatic Releases action');
   dumpGitHubEventPayload();
