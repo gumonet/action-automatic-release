@@ -8,7 +8,7 @@ export const getAndValidateArgs = (): Args => {
     automaticReleaseTag: core.getInput('automatic_release_tag', {
       required: false,
     }),
-    draftRelease: JSON.parse(core.getInput('draft', { required: true })),
+    //draftRelease: JSON.parse(core.getInput('draft', { required: true })),
     preRelease: JSON.parse(core.getInput('prerelease', { required: true })),
     releaseTitle: core.getInput('title', { required: false }),
     files: [] as string[],

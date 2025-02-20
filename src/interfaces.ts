@@ -1,7 +1,7 @@
 export type Args = {
   repoToken: string;
   automaticReleaseTag: string;
-  draftRelease: boolean;
+  //draftRelease: boolean;
   preRelease: boolean;
   releaseTitle: string;
   files: string[];
