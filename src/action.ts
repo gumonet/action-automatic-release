@@ -13,16 +13,16 @@ export const main = async () => {
   const args = getAndValidateArgs();
   const context = new Context();
 
-  //const octokit = new Octokit({ auth: args.repoToken });
+  const octokit = new Octokit({ auth: args.repoToken });
 
   core.startGroup('Initializing the Automatic Releases action');
   dumpGitHubEventPayload();
   core.debug(`Github context: ${JSON.stringify(context)}`);
   core.endGroup();
-  /*core.startGroup('Determining release tags');
+  core.startGroup('Determining release tags');
 
   core.debug(`release tag searching start....`);
-  core.debug(JSON.stringify(args));
+  /*
   const releaseTag = args.automaticReleaseTag
     ? args.automaticReleaseTag
     : parseGitTag(context.ref);
