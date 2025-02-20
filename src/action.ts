@@ -22,7 +22,7 @@ export const main = async () => {
   core.startGroup('Determining release tags');
 
   core.debug(`release tag searching start....`);
-  /*
+  
   const releaseTag = args.automaticReleaseTag
     ? args.automaticReleaseTag
     : parseGitTag(context.ref);
@@ -30,7 +30,7 @@ export const main = async () => {
     throw new Error(
       `The parameter "automatic_release_tag" was not set and this does not appear to be a GitHub tag event. (Event: ${context.ref})`,
     );
-  }*/
+  }
   /*const previousReleaseTag = args.automaticReleaseTag
     ? args.automaticReleaseTag
     : await searchForPreviousReleaseTag(
