@@ -20,6 +20,9 @@ export const main = async () => {
   core.debug(`Github context: ${JSON.stringify(context)}`);
   core.endGroup();
   core.startGroup('Determining release tags');
+
+  core.debug(`release tag searching start....`);
+  core.debug(JSON.stringify(args));
   const releaseTag = args.automaticReleaseTag
     ? args.automaticReleaseTag
     : parseGitTag(context.ref);
@@ -28,7 +31,7 @@ export const main = async () => {
       `The parameter "automatic_release_tag" was not set and this does not appear to be a GitHub tag event. (Event: ${context.ref})`,
     );
   }
-  const previousReleaseTag = args.automaticReleaseTag
+  /*const previousReleaseTag = args.automaticReleaseTag
     ? args.automaticReleaseTag
     : await searchForPreviousReleaseTag(
         octokit,
@@ -36,5 +39,5 @@ export const main = async () => {
         context.repo.owner,
         context.repo.repo,
       );
-  core.endGroup();
+  core.endGroup();*/
 };
