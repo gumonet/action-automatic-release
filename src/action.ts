@@ -19,7 +19,7 @@ export const main = async () => {
   dumpGitHubEventPayload();
   core.debug(`Github context: ${JSON.stringify(context)}`);
   core.endGroup();
-  core.startGroup('Determining release tags');
+  /*core.startGroup('Determining release tags');
 
   core.debug(`release tag searching start....`);
   core.debug(JSON.stringify(args));
@@ -30,7 +30,7 @@ export const main = async () => {
     throw new Error(
       `The parameter "automatic_release_tag" was not set and this does not appear to be a GitHub tag event. (Event: ${context.ref})`,
     );
-  }
+  }*/
   /*const previousReleaseTag = args.automaticReleaseTag
     ? args.automaticReleaseTag
     : await searchForPreviousReleaseTag(
